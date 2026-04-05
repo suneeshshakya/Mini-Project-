@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURA.ai — Login</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#060a11;--surface:#0d1623;--surface2:#111e30;
+  --cyan:#63c1ff;--cyan-dim:rgba(99,193,255,0.08);--cyan-glow:rgba(99,193,255,0.15);
+  --red:#ff5f7e;--green:#4adeaf;--amber:#ffc94d;
+  --text:#f0f4ff;--muted:rgba(240,244,255,0.45);--muted2:rgba(240,244,255,0.2);
+  --border:rgba(255,255,255,0.07);--border2:rgba(99,193,255,0.2);
+}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;display:flex;overflow:hidden;}
+
+/* ANIMATED BG */
+.bg-art{position:fixed;inset:0;z-index:0;overflow:hidden;}
+.bg-art canvas{position:absolute;inset:0;}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);animation:orb-drift 12s ease-in-out infinite;}
+.orb1{width:500px;height:500px;background:rgba(99,193,255,0.06);top:-100px;left:-100px;animation-delay:0s;}
+.orb2{width:400px;height:400px;background:rgba(74,222,175,0.04);bottom:-80px;right:-80px;animation-delay:-4s;}
+.orb3{width:300px;height:300px;background:rgba(255,201,77,0.03);top:40%;left:50%;animation-delay:-8s;}
+@keyframes orb-drift{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(30px,-20px) scale(1.05);}66%{transform:translate(-20px,30px) scale(0.95);}}
+
+/* GRID OVERLAY */
+.grid-overlay{position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(99,193,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(99,193,255,0.03) 1px,transparent 1px);background-size:50px 50px;}
+
+/* SPLIT LAYOUT */
+.split{position:relative;z-index:1;display:flex;width:100%;min-height:100vh;}
+
+/* LEFT PANEL */
+.left{flex:1;display:flex;flex-direction:column;justify-content:center;padding:60px 80px;position:relative;}
+.brand{margin-bottom:60px;}
+.brand-logo{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;letter-spacing:1px;display:flex;align-items:center;gap:12px;margin-bottom:8px;}
+.brand-mark{width:40px;height:40px;background:linear-gradient(135deg,#3b8beb,var(--cyan));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;}
+.brand-logo span{color:var(--cyan);}
+.brand-tagline{font-size:13px;color:var(--muted);letter-spacing:0.3px;}
+
+.hero-txt h1{font-family:'Syne',sans-serif;font-size:42px;font-weight:800;line-height:1.15;margin-bottom:20px;letter-spacing:-0.5px;}
+.hero-txt h1 em{font-style:normal;color:var(--cyan);}
+.hero-txt p{font-size:15px;color:var(--muted);line-height:1.7;max-width:400px;margin-bottom:40px;}
+
+.stats-pills{display:flex;gap:12px;flex-wrap:wrap;}
+.spill{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 18px;}
+.spill-val{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--cyan);}
+.spill-lbl{font-size:11px;color:var(--muted);margin-top:2px;}
+
+/* RIGHT PANEL — FORM */
+.right{width:480px;display:flex;align-items:center;justify-content:center;padding:40px;border-left:1px solid var(--border);}
+.form-card{width:100%;max-width:400px;}
+
+.form-card h2{font-family:'Syne',sans-serif;font-size:26px;font-weight:700;margin-bottom:6px;}
+.form-card .sub{font-size:13px;color:var(--muted);margin-bottom:32px;}
+.form-card .sub a{color:var(--cyan);text-decoration:none;transition:opacity 0.2s;}
+.form-card .sub a:hover{opacity:0.75;}
+
+.fg{margin-bottom:16px;}
+.fl{display:block;font-size:11.5px;color:var(--muted);margin-bottom:6px;letter-spacing:0.3px;}
+.input-wrap{position:relative;}
+.fi{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px 16px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:all 0.2s;}
+.fi:focus{border-color:var(--cyan);box-shadow:0 0 0 3px var(--cyan-glow);}
+.fi::placeholder{color:var(--muted2);}
+.fi-icon{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:16px;cursor:pointer;color:var(--muted);}
+
+.forgot{display:block;text-align:right;font-size:12px;color:var(--cyan);text-decoration:none;margin-top:-8px;margin-bottom:20px;transition:opacity 0.2s;}
+.forgot:hover{opacity:0.75;}
+
+.login-btn{width:100%;padding:14px;border-radius:11px;border:none;background:linear-gradient(135deg,#3b8beb,var(--cyan));color:#fff;font-family:'Syne',sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:all 0.25s;position:relative;overflow:hidden;letter-spacing:0.3px;}
+.login-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(59,139,235,0.35);}
+.login-btn:active{transform:translateY(0);}
+.login-btn.loading{pointer-events:none;}
+.login-btn.loading::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);animation:shimmer 1s infinite;}
+@keyframes shimmer{to{left:100%;}}
+
+.divider{display:flex;align-items:center;gap:12px;margin:20px 0;color:var(--muted2);font-size:12px;}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border);}
+
+.demo-btn{width:100%;padding:12px;border-radius:11px;border:1px solid var(--border2);background:var(--cyan-dim);color:var(--cyan);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:all 0.2s;}
+.demo-btn:hover{background:rgba(99,193,255,0.15);border-color:rgba(99,193,255,0.35);}
+
+.err{background:rgba(255,95,126,0.08);border:1px solid rgba(255,95,126,0.25);border-radius:9px;padding:10px 14px;font-size:12.5px;color:var(--red);margin-bottom:14px;display:none;}
+.err.show{display:block;}
+.suc{background:rgba(74,222,175,0.08);border:1px solid rgba(74,222,175,0.25);border-radius:9px;padding:10px 14px;font-size:12.5px;color:var(--green);margin-bottom:14px;display:none;}
+.suc.show{display:block;}
+
+.role-tabs{display:flex;gap:8px;margin-bottom:20px;}
+.rtab{flex:1;padding:9px;border-radius:9px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:13px;cursor:pointer;transition:all 0.2s;text-align:center;}
+.rtab.on{background:var(--cyan-dim);color:var(--cyan);border-color:var(--border2);}
+
+@media(max-width:900px){.left{display:none;}.right{width:100%;border:none;padding:24px;}}
+</style>
+</head>
+<body>
+<div class="bg-art">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+</div>
+<div class="grid-overlay"></div>
+
+<div class="split">
+  <!-- LEFT -->
+  <div class="left">
+    <div class="brand">
+      <div class="brand-logo"><div class="brand-mark">⬡</div>AURA<span>.ai</span></div>
+      <div class="brand-tagline">Student Mental Health & Dropout Risk Monitor</div>
+    </div>
+    <div class="hero-txt">
+      <h1>Predict. <em>Prevent.</em><br>Protect Students.</h1>
+      <p>AI-powered early warning system trained on real student mental health data. Identify burnout and dropout risk before it's too late.</p>
+    </div>
+    <div class="stats-pills">
+      <div class="spill"><div class="spill-val">1,999</div><div class="spill-lbl">Students in dataset</div></div>
+      <div class="spill"><div class="spill-val">84%</div><div class="spill-lbl">Model accuracy</div></div>
+      <div class="spill"><div class="spill-val">16</div><div class="spill-lbl">Risk factors tracked</div></div>
+      <div class="spill"><div class="spill-val">3</div><div class="spill-lbl">Risk levels</div></div>
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+    <div class="form-card">
+      <h2>Welcome back</h2>
+      <p class="sub">Don't have an account? <a href="signup.html">Sign up free</a></p>
+
+      <div class="role-tabs">
+        <button class="rtab on" onclick="setRole('counsellor',this)">Counsellor</button>
+        <button class="rtab" onclick="setRole('admin',this)">Admin</button>
+        <button class="rtab" onclick="setRole('student',this)">Student</button>
+      </div>
+
+      <div class="err" id="err-box"></div>
+      <div class="suc" id="suc-box"></div>
+
+      <div class="fg">
+        <label class="fl">EMAIL ADDRESS</label>
+        <div class="input-wrap">
+          <input class="fi" type="email" id="email" placeholder="you@college.edu" autocomplete="email">
+          <span class="fi-icon">✉</span>
+        </div>
+      </div>
+
+      <div class="fg">
+        <label class="fl">PASSWORD</label>
+        <div class="input-wrap">
+          <input class="fi" type="password" id="password" placeholder="••••••••" autocomplete="current-password">
+          <span class="fi-icon" onclick="togglePwd()" id="eye-icon">👁</span>
+        </div>
+      </div>
+
+      <a href="#" class="forgot">Forgot password?</a>
+
+      <button class="login-btn" id="login-btn" onclick="doLogin()">Sign In to AURA.ai</button>
+
+      <div class="divider">or</div>
+
+      <button class="demo-btn" onclick="demoLogin()">⚡ Continue with Demo Account</button>
+    </div>
+  </div>
+</div>
+
+<script>
+let currentRole = 'counsellor';
+function setRole(role, el) {
+  currentRole = role;
+  document.querySelectorAll('.rtab').forEach(b => b.classList.remove('on'));
+  el.classList.add('on');
+}
+
+function togglePwd() {
+  const inp = document.getElementById('password');
+  const icon = document.getElementById('eye-icon');
+  if (inp.type === 'password') { inp.type = 'text'; icon.textContent = '🙈'; }
+  else { inp.type = 'password'; icon.textContent = '👁'; }
+}
+
+function showErr(msg) {
+  const e = document.getElementById('err-box');
+  e.textContent = msg; e.classList.add('show');
+  document.getElementById('suc-box').classList.remove('show');
+}
+function showSuc(msg) {
+  const s = document.getElementById('suc-box');
+  s.textContent = msg; s.classList.add('show');
+  document.getElementById('err-box').classList.remove('show');
+}
+
+function doLogin() {
+  const email = document.getElementById('email').value.trim();
+  const pwd = document.getElementById('password').value;
+  const btn = document.getElementById('login-btn');
+
+  if (!email) { showErr('Please enter your email address.'); return; }
+  if (!pwd) { showErr('Please enter your password.'); return; }
+  if (!email.includes('@')) { showErr('Please enter a valid email address.'); return; }
+  if (pwd.length < 6) { showErr('Password must be at least 6 characters.'); return; }
+
+  btn.textContent = 'Signing in…';
+  btn.classList.add('loading');
+
+  setTimeout(() => {
+    // Check localStorage for registered users
+    const users = JSON.parse(localStorage.getItem('aura_users') || '[]');
+    const user = users.find(u => u.email === email && u.password === pwd);
+    if (user) {
+      localStorage.setItem('aura_session', JSON.stringify({name: user.name, email, role: user.role || currentRole, loggedIn: true}));
+      showSuc('✓ Login successful! Redirecting to dashboard…');
+      setTimeout(() => window.location.href = 'index.html', 1200);
+    } else {
+      btn.textContent = 'Sign In to AURA.ai';
+      btn.classList.remove('loading');
+      showErr('Invalid email or password. Try the Demo Account below.');
+    }
+  }, 1000);
+}
+
+function demoLogin() {
+  localStorage.setItem('aura_session', JSON.stringify({name:'Demo Counsellor', email:'demo@aura.ai', role:'counsellor', loggedIn:true}));
+  showSuc('✓ Demo login successful! Redirecting…');
+  setTimeout(() => window.location.href = 'index.html', 1000);
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+
+// If already logged in, redirect
+const sess = JSON.parse(localStorage.getItem('aura_session') || '{}');
+if (sess.loggedIn) window.location.href = 'index.html';
+</script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURA.ai — Sign Up</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#060a11;--surface:#0d1623;--surface2:#111e30;
+  --cyan:#63c1ff;--cyan-dim:rgba(99,193,255,0.08);--cyan-glow:rgba(99,193,255,0.15);
+  --red:#ff5f7e;--green:#4adeaf;--amber:#ffc94d;
+  --text:#f0f4ff;--muted:rgba(240,244,255,0.45);--muted2:rgba(240,244,255,0.2);
+  --border:rgba(255,255,255,0.07);--border2:rgba(99,193,255,0.2);
+}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;display:flex;overflow-x:hidden;}
+.orb{position:fixed;border-radius:50%;filter:blur(90px);animation:drift 14s ease-in-out infinite;z-index:0;}
+.orb1{width:500px;height:500px;background:rgba(74,222,175,0.05);top:-120px;right:-100px;animation-delay:0s;}
+.orb2{width:400px;height:400px;background:rgba(99,193,255,0.05);bottom:-80px;left:-60px;animation-delay:-5s;}
+@keyframes drift{0%,100%{transform:translate(0,0);}50%{transform:translate(20px,-25px);}}
+.grid{position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(99,193,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(99,193,255,0.025) 1px,transparent 1px);background-size:50px 50px;}
+
+.split{position:relative;z-index:1;display:flex;width:100%;min-height:100vh;}
+
+/* LEFT */
+.left{width:420px;display:flex;align-items:center;justify-content:center;padding:40px;border-right:1px solid var(--border);flex-direction:column;gap:0;}
+.left-inner{width:100%;max-width:360px;}
+.brand{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;letter-spacing:1px;display:flex;align-items:center;gap:10px;margin-bottom:48px;}
+.bm{width:36px;height:36px;background:linear-gradient(135deg,#3b8beb,var(--cyan));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;}
+.brand span{color:var(--cyan);}
+.left h2{font-family:'Syne',sans-serif;font-size:30px;font-weight:800;line-height:1.2;margin-bottom:16px;}
+.left h2 em{font-style:normal;color:var(--cyan);}
+.left p{font-size:13.5px;color:var(--muted);line-height:1.7;margin-bottom:36px;}
+.feature-list{display:flex;flex-direction:column;gap:14px;}
+.feat{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--muted);}
+.feat-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+.feat-icon.g{background:rgba(74,222,175,0.1);border:1px solid rgba(74,222,175,0.2);}
+.feat-icon.c{background:var(--cyan-dim);border:1px solid var(--border2);}
+.feat-icon.a{background:rgba(255,201,77,0.1);border:1px solid rgba(255,201,77,0.2);}
+.feat strong{display:block;color:var(--text);font-size:13.5px;margin-bottom:1px;}
+
+/* RIGHT */
+.right{flex:1;display:flex;align-items:center;justify-content:center;padding:40px;}
+.form-card{width:100%;max-width:480px;}
+.form-card h2{font-family:'Syne',sans-serif;font-size:24px;font-weight:700;margin-bottom:6px;}
+.form-card .sub{font-size:13px;color:var(--muted);margin-bottom:28px;}
+.form-card .sub a{color:var(--cyan);text-decoration:none;}
+
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.fg{margin-bottom:14px;}
+.fg.full{grid-column:1/-1;}
+.fl{display:block;font-size:11px;color:var(--muted);margin-bottom:5px;letter-spacing:0.3px;}
+.iw{position:relative;}
+.fi{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:11px 14px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:13.5px;outline:none;transition:all 0.2s;}
+.fi:focus{border-color:var(--cyan);box-shadow:0 0 0 3px var(--cyan-glow);}
+.fi::placeholder{color:var(--muted2);}
+select.fi{cursor:pointer;}
+select.fi option{background:#111e30;}
+.eye{position:absolute;right:12px;top:50%;transform:translateY(-50%);cursor:pointer;color:var(--muted);font-size:15px;}
+
+/* strength meter */
+.strength{margin-top:6px;}
+.str-bars{display:flex;gap:4px;margin-bottom:4px;}
+.sbar{height:3px;flex:1;border-radius:3px;background:rgba(255,255,255,0.08);transition:background 0.3s;}
+.str-txt{font-size:11px;color:var(--muted);}
+
+/* role cards */
+.role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px;}
+.rc{border:1px solid var(--border);border-radius:10px;padding:12px;cursor:pointer;transition:all 0.2s;text-align:center;}
+.rc:hover{border-color:var(--border2);background:var(--cyan-dim);}
+.rc.on{border-color:var(--border2);background:var(--cyan-dim);}
+.rc-icon{font-size:20px;margin-bottom:5px;}
+.rc-name{font-size:12px;font-weight:500;color:var(--text);}
+.rc-desc{font-size:10px;color:var(--muted);margin-top:2px;}
+
+.agree{display:flex;align-items:flex-start;gap:10px;font-size:12.5px;color:var(--muted);margin-bottom:18px;cursor:pointer;}
+.agree input{width:16px;height:16px;accent-color:var(--cyan);flex-shrink:0;margin-top:1px;cursor:pointer;}
+.agree a{color:var(--cyan);text-decoration:none;}
+
+.signup-btn{width:100%;padding:14px;border-radius:11px;border:none;background:linear-gradient(135deg,#3b8beb,var(--cyan));color:#fff;font-family:'Syne',sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:all 0.25s;letter-spacing:0.3px;}
+.signup-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(59,139,235,0.35);}
+.signup-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none;}
+
+.err{background:rgba(255,95,126,0.08);border:1px solid rgba(255,95,126,0.25);border-radius:9px;padding:10px 14px;font-size:12.5px;color:var(--red);margin-bottom:14px;display:none;}
+.err.show{display:block;}
+.suc{background:rgba(74,222,175,0.08);border:1px solid rgba(74,222,175,0.25);border-radius:9px;padding:10px 14px;font-size:12.5px;color:var(--green);margin-bottom:14px;display:none;}
+.suc.show{display:block;}
+
+/* progress steps */
+.steps{display:flex;align-items:center;gap:0;margin-bottom:28px;}
+.step{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);}
+.step-num{width:24px;height:24px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;transition:all 0.3s;}
+.step.done .step-num{background:var(--green);border-color:var(--green);color:#000;}
+.step.active .step-num{background:var(--cyan);border-color:var(--cyan);color:#000;}
+.step-line{flex:1;height:1px;background:var(--border);margin:0 8px;}
+.step.done .step-line{background:var(--green);}
+
+@media(max-width:900px){.left{display:none;}.right{padding:24px;}}
+</style>
+</head>
+<body>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="grid"></div>
+
+<div class="split">
+  <!-- LEFT INFO -->
+  <div class="left">
+    <div class="left-inner">
+      <div class="brand"><div class="bm">⬡</div>AURA<span>.ai</span></div>
+      <h2>Join the <em>future</em> of student welfare.</h2>
+      <p>AURA.ai uses machine learning trained on 1,999 real student records to detect burnout and dropout risk early — so counsellors can act before it's too late.</p>
+      <div class="feature-list">
+        <div class="feat"><div class="feat-icon g">🧠</div><div><strong>AI Risk Prediction</strong>84% accurate Gradient Boosting model</div></div>
+        <div class="feat"><div class="feat-icon c">💬</div><div><strong>Student Chatbot</strong>24/7 mental health support using dataset insights</div></div>
+        <div class="feat"><div class="feat-icon a">📊</div><div><strong>Real-time Dashboard</strong>Monitor stress, sleep, burnout across all students</div></div>
+        <div class="feat"><div class="feat-icon g">🔒</div><div><strong>Secure & Private</strong>All data stays local — no external sharing</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT FORM -->
+  <div class="right">
+    <div class="form-card">
+      <h2>Create your account</h2>
+      <p class="sub">Already have one? <a href="login.html">Sign in here</a></p>
+
+      <div class="steps">
+        <div class="step active" id="s1"><div class="step-num">1</div><span>Account</span></div>
+        <div class="step-line"></div>
+        <div class="step" id="s2"><div class="step-num">2</div><span>Role</span></div>
+        <div class="step-line"></div>
+        <div class="step" id="s3"><div class="step-num">3</div><span>Done</span></div>
+      </div>
+
+      <div class="err" id="err-box"></div>
+      <div class="suc" id="suc-box"></div>
+
+      <!-- STEP 1 -->
+      <div id="step1">
+        <div class="fgrid">
+          <div class="fg"><label class="fl">FIRST NAME</label><input class="fi" type="text" id="fname" placeholder="Riya"></div>
+          <div class="fg"><label class="fl">LAST NAME</label><input class="fi" type="text" id="lname" placeholder="Sharma"></div>
+          <div class="fg full"><label class="fl">EMAIL ADDRESS</label><div class="iw"><input class="fi" type="email" id="email" placeholder="you@college.edu"></div></div>
+          <div class="fg full"><label class="fl">INSTITUTION / COLLEGE</label><input class="fi" type="text" id="institution" placeholder="e.g. Delhi University"></div>
+          <div class="fg full">
+            <label class="fl">PASSWORD</label>
+            <div class="iw">
+              <input class="fi" type="password" id="password" placeholder="Min 8 characters" oninput="checkStrength()">
+              <span class="eye" onclick="togglePwd('password','eye1')" id="eye1">👁</span>
+            </div>
+            <div class="strength">
+              <div class="str-bars"><div class="sbar" id="b1"></div><div class="sbar" id="b2"></div><div class="sbar" id="b3"></div><div class="sbar" id="b4"></div></div>
+              <div class="str-txt" id="str-txt">Enter a password</div>
+            </div>
+          </div>
+          <div class="fg full">
+            <label class="fl">CONFIRM PASSWORD</label>
+            <div class="iw">
+              <input class="fi" type="password" id="password2" placeholder="Repeat password">
+              <span class="eye" onclick="togglePwd('password2','eye2')" id="eye2">👁</span>
+            </div>
+          </div>
+        </div>
+        <button class="signup-btn" onclick="goStep2()">Continue →</button>
+      </div>
+
+      <!-- STEP 2 -->
+      <div id="step2" style="display:none;">
+        <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">Select your role in the institution:</p>
+        <div class="role-grid">
+          <div class="rc on" id="r-counsellor" onclick="pickRole('counsellor')">
+            <div class="rc-icon">🧑‍⚕️</div>
+            <div class="rc-name">Counsellor</div>
+            <div class="rc-desc">Full access to student risk data</div>
+          </div>
+          <div class="rc" id="r-admin" onclick="pickRole('admin')">
+            <div class="rc-icon">🏫</div>
+            <div class="rc-name">Admin</div>
+            <div class="rc-desc">Dashboard & reports only</div>
+          </div>
+          <div class="rc" id="r-student" onclick="pickRole('student')">
+            <div class="rc-icon">🎓</div>
+            <div class="rc-name">Student</div>
+            <div class="rc-desc">Chatbot & self-check access</div>
+          </div>
+        </div>
+        <div class="fg">
+          <label class="fl">EMPLOYEE / STUDENT ID (optional)</label>
+          <input class="fi" type="text" id="emp-id" placeholder="e.g. EMP-2024-001">
+        </div>
+        <div class="agree">
+          <input type="checkbox" id="agree-cb">
+          <label for="agree-cb">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>. I understand that student data is handled securely.</label>
+        </div>
+        <button class="signup-btn" onclick="doSignup()">Create Account →</button>
+        <button onclick="goBack()" style="width:100%;padding:11px;border-radius:11px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:13px;cursor:pointer;margin-top:10px;transition:all 0.2s;">← Back</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+let selectedRole = 'counsellor';
+
+function togglePwd(id, eyeId) {
+  const inp = document.getElementById(id);
+  const eye = document.getElementById(eyeId);
+  inp.type = inp.type === 'password' ? 'text' : 'password';
+  eye.textContent = inp.type === 'password' ? '👁' : '🙈';
+}
+
+function checkStrength() {
+  const pwd = document.getElementById('password').value;
+  const bars = ['b1','b2','b3','b4'].map(id => document.getElementById(id));
+  const txt = document.getElementById('str-txt');
+  let score = 0;
+  if (pwd.length >= 8) score++;
+  if (/[A-Z]/.test(pwd)) score++;
+  if (/[0-9]/.test(pwd)) score++;
+  if (/[^A-Za-z0-9]/.test(pwd)) score++;
+  const colors = ['#ff5f7e','#ffc94d','#63c1ff','#4adeaf'];
+  const labels = ['Too weak','Fair','Good','Strong ✓'];
+  bars.forEach((b,i) => b.style.background = i < score ? colors[score-1] : 'rgba(255,255,255,0.08)');
+  txt.textContent = pwd ? labels[score-1] || 'Too weak' : 'Enter a password';
+  txt.style.color = pwd ? colors[score-1] : 'var(--muted)';
+}
+
+function showErr(msg) {
+  const e = document.getElementById('err-box');
+  e.textContent = msg; e.classList.add('show');
+  document.getElementById('suc-box').classList.remove('show');
+}
+
+function goStep2() {
+  const fname = document.getElementById('fname').value.trim();
+  const lname = document.getElementById('lname').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const inst  = document.getElementById('institution').value.trim();
+  const pwd   = document.getElementById('password').value;
+  const pwd2  = document.getElementById('password2').value;
+
+  if (!fname || !lname) { showErr('Please enter your full name.'); return; }
+  if (!email || !email.includes('@')) { showErr('Please enter a valid email address.'); return; }
+  if (!inst) { showErr('Please enter your institution name.'); return; }
+  if (pwd.length < 8) { showErr('Password must be at least 8 characters.'); return; }
+  if (pwd !== pwd2) { showErr('Passwords do not match.'); return; }
+
+  // Check if email already exists
+  const users = JSON.parse(localStorage.getItem('aura_users') || '[]');
+  if (users.find(u => u.email === email)) { showErr('An account with this email already exists. Try logging in.'); return; }
+
+  document.getElementById('err-box').classList.remove('show');
+  document.getElementById('step1').style.display = 'none';
+  document.getElementById('step2').style.display = 'block';
+  document.getElementById('s1').classList.remove('active');
+  document.getElementById('s1').classList.add('done');
+  document.getElementById('s2').classList.add('active');
+}
+
+function goBack() {
+  document.getElementById('step2').style.display = 'none';
+  document.getElementById('step1').style.display = 'block';
+  document.getElementById('s2').classList.remove('active');
+  document.getElementById('s1').classList.remove('done');
+  document.getElementById('s1').classList.add('active');
+}
+
+function pickRole(role) {
+  selectedRole = role;
+  ['counsellor','admin','student'].forEach(r => {
+    document.getElementById('r-'+r).classList.toggle('on', r === role);
+  });
+}
+
+function doSignup() {
+  if (!document.getElementById('agree-cb').checked) {
+    showErr('Please agree to the Terms of Service to continue.'); return;
+  }
+
+  const fname = document.getElementById('fname').value.trim();
+  const lname = document.getElementById('lname').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const pwd   = document.getElementById('password').value;
+  const inst  = document.getElementById('institution').value.trim();
+  const empId = document.getElementById('emp-id').value.trim();
+
+  const users = JSON.parse(localStorage.getItem('aura_users') || '[]');
+  users.push({name: fname + ' ' + lname, email, password: pwd, role: selectedRole, institution: inst, empId, created: new Date().toISOString()});
+  localStorage.setItem('aura_users', JSON.stringify(users));
+
+  // Auto login
+  localStorage.setItem('aura_session', JSON.stringify({name: fname + ' ' + lname, email, role: selectedRole, loggedIn: true}));
+
+  document.getElementById('s2').classList.remove('active');
+  document.getElementById('s2').classList.add('done');
+  document.getElementById('s3').classList.add('active','done');
+
+  const suc = document.getElementById('suc-box');
+  suc.textContent = `✓ Account created! Welcome, ${fname}. Redirecting to dashboard…`;
+  suc.classList.add('show');
+  document.getElementById('err-box').classList.remove('show');
+
+  setTimeout(() => window.location.href = 'index.html', 1800);
+}
+
+// If already logged in, redirect
+const sess = JSON.parse(localStorage.getItem('aura_session') || '{}');
+if (sess.loggedIn) window.location.href = 'index.html';
+</script>
+</body>
+</html>
