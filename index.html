@@ -237,7 +237,75 @@ select.fi option{background:#131c2b;}
 .ic-bar{flex:1;height:4px;background:rgba(255,255,255,0.05);border-radius:4px;overflow:hidden;}
 .ic-fill{height:100%;border-radius:4px;}
 
-@media(max-width:1100px){.tc,.cr,.sg{grid-template-columns:1fr;}.sr{grid-template-columns:repeat(2,1fr);}}
+/* ADD STUDENT */
+.form-section{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:18px;}
+.form-section-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:600;color:var(--cyan);margin-bottom:16px;display:flex;align-items:center;gap:8px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+.fgrid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+.fgrid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.fi-full{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:9px;padding:9px 13px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;transition:border-color 0.2s;}
+.fi-full:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(99,193,255,0.07);}
+.fi-full::placeholder{color:var(--muted2);}
+.fi-full::-webkit-outer-spin-button,.fi-full::-webkit-inner-spin-button{-webkit-appearance:none;}
+select.fi-full{cursor:pointer;}select.fi-full option{background:#131c2b;}
+textarea.fi-full{resize:vertical;min-height:80px;line-height:1.5;}
+.slider-group{display:flex;align-items:center;gap:10px;}
+.slider-group input[type=range]{flex:1;-webkit-appearance:none;height:4px;border-radius:4px;background:var(--surface3);outline:none;cursor:pointer;border:none;}
+.slider-group input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;border-radius:50%;background:var(--cyan);cursor:pointer;}
+.slider-group input[type=range]::-moz-range-thumb{width:15px;height:15px;border-radius:50%;background:var(--cyan);cursor:pointer;border:none;}
+.sval-lbl{font-size:12px;font-weight:500;color:var(--cyan);min-width:28px;text-align:right;}
+.submit-btn{width:100%;padding:13px;border-radius:11px;border:none;background:linear-gradient(135deg,#3b8beb,var(--cyan));color:#fff;font-family:'Syne',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.2s;}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(59,139,235,0.3);}
+.submit-btn.green{background:linear-gradient(135deg,#1a9e6a,var(--green));color:#000;}
+.submit-btn.green:hover{box-shadow:0 8px 20px rgba(74,222,175,0.3);}
+.suc-bar{padding:12px 16px;background:var(--green-dim);border:1px solid rgba(74,222,175,0.3);border-radius:10px;font-size:13px;color:var(--green);display:none;margin-bottom:14px;}
+.suc-bar.show{display:block;animation:fi 0.3s ease;}
+.err-bar{padding:12px 16px;background:var(--red-dim);border:1px solid rgba(255,95,126,0.3);border-radius:10px;font-size:13px;color:var(--red);display:none;margin-bottom:14px;}
+.err-bar.show{display:block;}
+/* preview card */
+.preview-card{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:18px;display:none;}
+.preview-card.show{display:block;animation:fi 0.3s ease;}
+.pc-header{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.pc-av{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:14px;font-weight:700;flex-shrink:0;}
+.pc-name{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;}
+.pc-sub{font-size:12px;color:var(--muted);margin-top:2px;}
+.pc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px;}
+.pc-item{background:var(--surface3);border-radius:8px;padding:10px 12px;}
+.pc-item-lbl{font-size:10px;color:var(--muted2);margin-bottom:3px;}
+.pc-item-val{font-size:14px;font-weight:500;}
+/* COUNSELLING */
+.counsel-layout{display:grid;grid-template-columns:1fr 360px;gap:18px;}
+.session-card{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:16px 18px;transition:border-color 0.2s;cursor:pointer;}
+.session-card:hover{border-color:var(--border2);}
+.sc-header{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.sc-av{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:12px;flex-shrink:0;}
+.sc-info{flex:1;}
+.sc-name{font-size:13.5px;font-weight:500;}
+.sc-meta{font-size:11px;color:var(--muted);margin-top:1px;}
+.sc-body{font-size:12.5px;color:var(--muted);line-height:1.5;margin-bottom:10px;border-left:2px solid var(--border);padding-left:10px;}
+.sc-footer{display:flex;align-items:center;gap:8px;}
+.sc-date{font-size:11px;color:var(--muted2);}
+.status-badge{font-size:10px;padding:2px 8px;border-radius:20px;font-weight:500;}
+.status-badge.ongoing{background:var(--amber-dim);color:var(--amber);border:1px solid rgba(255,201,77,0.2);}
+.status-badge.resolved{background:var(--green-dim);color:var(--green);border:1px solid rgba(74,222,175,0.2);}
+.status-badge.critical{background:var(--red-dim);color:var(--red);border:1px solid rgba(255,95,126,0.2);}
+.sc-actions{display:flex;gap:6px;margin-left:auto;}
+.sc-btn{font-size:11px;padding:4px 10px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;transition:all 0.2s;}
+.sc-btn:hover{background:var(--surface3);color:var(--text);}
+.sc-btn.resolve{color:var(--green);border-color:rgba(74,222,175,0.2);}
+.sc-btn.resolve:hover{background:var(--green-dim);}
+/* stats mini */
+.counsel-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
+.cs-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:14px;}
+.cs-val{font-family:'Syne',sans-serif;font-size:24px;font-weight:700;margin-bottom:2px;}
+.cs-lbl{font-size:11px;color:var(--muted);}
+/* upcoming */
+.upcoming-list{display:flex;flex-direction:column;gap:8px;}
+.up-item{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:9px;}
+.up-date{font-size:11px;color:var(--cyan);font-weight:500;white-space:nowrap;}
+.up-name{font-size:13px;flex:1;}
+.up-type{font-size:10.5px;color:var(--muted);}
+@media(max-width:1100px){.tc,.cr,.sg,.counsel-layout{grid-template-columns:1fr;}.sr{grid-template-columns:repeat(2,1fr);}.fgrid3{grid-template-columns:1fr 1fr;}.pc-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:768px){.sidebar{display:none;}.main{margin-left:0;}.page{padding:20px;}.sr{grid-template-columns:1fr 1fr;}.fgrid2,.fgrid3{grid-template-columns:1fr;}}
 @media(max-width:768px){.sidebar{display:none;}.main{margin-left:0;}.page{padding:20px;}.sr{grid-template-columns:1fr 1fr;}}
 </style>
 </head>
@@ -253,6 +321,8 @@ select.fi option{background:#131c2b;}
     <li class="ni" data-page="analysis"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>Risk Analysis</li>
     <li class="ni" data-page="students"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/></svg>Students</li>
     <li class="ni" data-page="history"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>History</li>
+    <li class="ni" data-page="addstudent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>Add Student</li>
+    <li class="ni" data-page="counselling"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Counselling</li>
     <li class="ni chat-ni" data-page="chatbot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>AURA Chat <span style="font-size:9px;background:var(--amber-dim);color:var(--amber);padding:2px 6px;border-radius:8px;margin-left:4px;border:1px solid rgba(255,201,77,0.3);">AI</span></li>
     <li class="ni" data-page="settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 0 0 4.93 19.07M4.93 4.93a10 10 0 0 0 14.14 14.14"/></svg>Settings</li>
   </ul>
@@ -463,6 +533,177 @@ select.fi option{background:#131c2b;}
         <div class="setr"><div class="sn2">Features</div><span style="color:var(--muted);font-size:13px;">20 columns</span></div>
         <div class="setr"><div class="sn2">Model accuracy</div><span style="color:var(--green);font-size:13px;">84.25%</span></div>
         <div class="setr"><div class="sn2">Algorithm</div><span style="color:var(--cyan);font-size:13px;">Gradient Boosting</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ ADD STUDENT ══════════════ -->
+<div class="page" id="page-addstudent">
+  <div class="ph">
+    <div><div class="pt">Add Student</div><div class="ps">Register a new student and auto-predict their risk level</div></div>
+  </div>
+
+  <div class="suc-bar" id="add-suc">✓ Student added successfully! Prediction generated.</div>
+  <div class="err-bar" id="add-err"></div>
+
+  <div style="display:grid;grid-template-columns:1fr 340px;gap:18px;">
+    <div>
+      <!-- PERSONAL INFO -->
+      <div class="form-section">
+        <div class="form-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          Personal Information
+        </div>
+        <div class="fgrid3" style="margin-bottom:12px;">
+          <div class="fg"><label class="fl">FULL NAME *</label><input class="fi-full" type="text" id="as-name" placeholder="e.g. Riya Sharma"></div>
+          <div class="fg"><label class="fl">AGE (17–29) *</label><input class="fi-full" type="number" id="as-age" placeholder="e.g. 21" min="17" max="29"></div>
+          <div class="fg"><label class="fl">GENDER</label><select class="fi-full" id="as-gender"><option value="Male">Male</option><option value="Female">Female</option><option value="Other">Other</option></select></div>
+        </div>
+        <div class="fgrid3" style="margin-bottom:12px;">
+          <div class="fg"><label class="fl">ACADEMIC YEAR</label><select class="fi-full" id="as-year"><option value="1">Year 1</option><option value="2" selected>Year 2</option><option value="3">Year 3</option><option value="4">Year 4</option></select></div>
+          <div class="fg"><label class="fl">DEPARTMENT</label><input class="fi-full" type="text" id="as-dept" placeholder="e.g. Computer Science"></div>
+          <div class="fg"><label class="fl">STUDENT ID</label><input class="fi-full" type="text" id="as-id" placeholder="e.g. STU-2024-001"></div>
+        </div>
+        <div class="fgrid2">
+          <div class="fg"><label class="fl">EMAIL</label><input class="fi-full" type="email" id="as-email" placeholder="student@college.edu"></div>
+          <div class="fg"><label class="fl">PHONE</label><input class="fi-full" type="tel" id="as-phone" placeholder="+91 9XXXXXXXXX"></div>
+        </div>
+      </div>
+
+      <!-- ACADEMIC INFO -->
+      <div class="form-section">
+        <div class="form-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Academic & Mental Health Metrics
+        </div>
+        <div class="fgrid2" style="margin-bottom:12px;">
+          <div class="fg"><label class="fl">STUDY HRS / DAY (CSV avg: 5.1)</label><input class="fi-full" type="number" id="as-study" placeholder="0–12" min="0" max="12" step="0.5"></div>
+          <div class="fg"><label class="fl">ACADEMIC PERFORMANCE % (CSV avg: 71.1)</label><input class="fi-full" type="number" id="as-perf" placeholder="0–100" min="0" max="100"></div>
+        </div>
+        <div class="fg" style="margin-bottom:10px;"><label class="fl">STRESS LEVEL — <span id="as-stress-lbl">4.3</span>/10 &nbsp;<span style="font-size:9px;color:var(--muted2)">(CSV avg: 4.3 | High Risk avg: 7.8)</span></label><div class="slider-group"><input type="range" id="as-stress" min="0" max="10" value="4.3" step="0.1" oninput="sUpdate('as-stress','as-stress-lbl')"><span class="sval-lbl" id="as-stress-dsp">4.3</span></div></div>
+        <div class="fg" style="margin-bottom:10px;"><label class="fl">SLEEP HRS / NIGHT — <span id="as-sleep-lbl">6.5</span>h &nbsp;<span style="font-size:9px;color:var(--muted2)">(CSV avg: 6.5 | High Risk avg: 4.8h)</span></label><div class="slider-group"><input type="range" id="as-sleep" min="3" max="10" value="6.5" step="0.1" oninput="sUpdate('as-sleep','as-sleep-lbl')"><span class="sval-lbl" id="as-sleep-dsp">6.5</span></div></div>
+        <div class="fg" style="margin-bottom:10px;"><label class="fl">EXAM PRESSURE — <span id="as-ep-lbl">5.9</span>/10 &nbsp;<span style="font-size:9px;color:var(--muted2)">(CSV avg: 5.9 | High Risk avg: 7.8)</span></label><div class="slider-group"><input type="range" id="as-ep" min="0" max="10" value="5.9" step="0.1" oninput="sUpdate('as-ep','as-ep-lbl')"><span class="sval-lbl" id="as-ep-dsp">5.9</span></div></div>
+        <div class="fg" style="margin-bottom:10px;"><label class="fl">ANXIETY — <span id="as-anx-lbl">3.0</span>/10 &nbsp;<span style="font-size:9px;color:var(--muted2)">(CSV avg: 3.0 | High Risk avg: 5.9)</span></label><div class="slider-group"><input type="range" id="as-anx" min="0" max="10" value="3.0" step="0.1" oninput="sUpdate('as-anx','as-anx-lbl')"><span class="sval-lbl" id="as-anx-dsp">3.0</span></div></div>
+        <div class="fg" style="margin-bottom:10px;"><label class="fl">SOCIAL SUPPORT — <span id="as-soc-lbl">4.9</span>/10</label><div class="slider-group"><input type="range" id="as-soc" min="0" max="10" value="4.9" step="0.1" oninput="sUpdate('as-soc','as-soc-lbl')"><span class="sval-lbl" id="as-soc-dsp">4.9</span></div></div>
+        <div class="fg" style="margin-bottom:10px;"><label class="fl">PHYSICAL ACTIVITY — <span id="as-phy-lbl">3.0</span>h/day</label><div class="slider-group"><input type="range" id="as-phy" min="0" max="8" value="3.0" step="0.1" oninput="sUpdate('as-phy','as-phy-lbl')"><span class="sval-lbl" id="as-phy-dsp">3.0</span></div></div>
+        <div class="fg" style="margin-bottom:10px;"><label class="fl">SCREEN TIME — <span id="as-scr-lbl">5.1</span>h/day</label><div class="slider-group"><input type="range" id="as-scr" min="0" max="12" value="5.1" step="0.1" oninput="sUpdate('as-scr','as-scr-lbl')"><span class="sval-lbl" id="as-scr-dsp">5.1</span></div></div>
+        <div class="fg" style="margin-bottom:0;"><label class="fl">FINANCIAL STRESS — <span id="as-fin-lbl">3.0</span>/10</label><div class="slider-group"><input type="range" id="as-fin" min="0" max="10" value="3.0" step="0.1" oninput="sUpdate('as-fin','as-fin-lbl')"><span class="sval-lbl" id="as-fin-dsp">3.0</span></div></div>
+      </div>
+
+      <!-- NOTES -->
+      <div class="form-section">
+        <div class="form-section-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          Counsellor Notes
+        </div>
+        <div class="fg"><label class="fl">REASON FOR REFERRAL / INITIAL OBSERVATION</label><textarea class="fi-full" id="as-notes" placeholder="Describe why this student is being added — observed behaviour, self-referral, teacher report, etc." rows="3"></textarea></div>
+        <div class="fgrid2">
+          <div class="fg"><label class="fl">REFERRED BY</label><select class="fi-full" id="as-refby"><option>Self</option><option>Teacher</option><option>Parent</option><option>Peer</option><option>Counsellor</option><option>HOD</option></select></div>
+          <div class="fg"><label class="fl">PRIORITY</label><select class="fi-full" id="as-priority"><option value="normal">Normal</option><option value="high">High Priority</option><option value="urgent">Urgent</option></select></div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:12px;">
+        <button class="submit-btn" style="flex:1;" onclick="addStudent()">⚡ Add Student & Generate Risk Report</button>
+        <button onclick="clearAddForm()" style="padding:13px 20px;border-radius:11px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:13px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='transparent'">Clear</button>
+      </div>
+    </div>
+
+    <!-- RIGHT: PREVIEW + RECENT -->
+    <div>
+      <div class="panel" style="margin-bottom:16px;">
+        <div class="ptitle"><span class="pd" style="background:var(--amber)"></span>Live Preview</div>
+        <div class="preview-card show" id="as-preview">
+          <div class="pc-header">
+            <div class="pc-av" id="as-prev-av" style="background:var(--cyan-dim);border:1px solid rgba(99,193,255,0.2);color:var(--cyan);">?</div>
+            <div><div class="pc-name" id="as-prev-name">Student Name</div><div class="pc-sub" id="as-prev-sub">Fill in the form to see preview</div></div>
+          </div>
+          <div style="height:1px;background:var(--border);margin-bottom:12px;"></div>
+          <div class="pc-grid">
+            <div class="pc-item"><div class="pc-item-lbl">STRESS</div><div class="pc-item-val" id="pv-stress" style="color:var(--cyan)">4.3</div></div>
+            <div class="pc-item"><div class="pc-item-lbl">SLEEP</div><div class="pc-item-val" id="pv-sleep" style="color:var(--cyan)">6.5h</div></div>
+            <div class="pc-item"><div class="pc-item-lbl">EXAM PRESSURE</div><div class="pc-item-val" id="pv-ep" style="color:var(--cyan)">5.9</div></div>
+            <div class="pc-item"><div class="pc-item-lbl">ANXIETY</div><div class="pc-item-val" id="pv-anx" style="color:var(--cyan)">3.0</div></div>
+            <div class="pc-item"><div class="pc-item-lbl">SOCIAL SUPPORT</div><div class="pc-item-val" id="pv-soc" style="color:var(--cyan)">4.9</div></div>
+            <div class="pc-item"><div class="pc-item-lbl">PHYSICAL ACT.</div><div class="pc-item-val" id="pv-phy" style="color:var(--cyan)">3.0h</div></div>
+          </div>
+          <div style="margin-top:12px;padding:10px 12px;border-radius:9px;text-align:center;background:var(--surface3);" id="pv-risk-box">
+            <div style="font-size:10px;color:var(--muted);margin-bottom:3px;">ESTIMATED RISK</div>
+            <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:700;" id="pv-risk">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="ptitle"><span class="pd" style="background:var(--green)"></span>Recently Added</div>
+        <div id="recent-added">
+          <div style="text-align:center;padding:24px 10px;color:var(--muted);font-size:13px;">No students added yet this session.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ COUNSELLING ══════════════ -->
+<div class="page" id="page-counselling">
+  <div class="ph">
+    <div><div class="pt">Counselling Sessions</div><div class="ps">Track and manage student counselling sessions</div></div>
+    <button class="submit-btn" style="width:auto;padding:9px 18px;font-size:13px;" onclick="openNewSession()">+ New Session</button>
+  </div>
+
+  <div class="counsel-layout">
+    <!-- LEFT: SESSIONS LIST -->
+    <div>
+      <!-- Filter bar -->
+      <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
+        <input class="si2" type="text" id="cs-search" placeholder="Search student name…" oninput="renderSessions()" style="flex:1;min-width:140px;">
+        <button class="fb on" id="cs-all" onclick="setCsFilter('all')">All</button>
+        <button class="fb" id="cs-critical" onclick="setCsFilter('critical')">Critical</button>
+        <button class="fb" id="cs-ongoing" onclick="setCsFilter('ongoing')">Ongoing</button>
+        <button class="fb" id="cs-resolved" onclick="setCsFilter('resolved')">Resolved</button>
+      </div>
+      <div id="sessions-list" style="display:flex;flex-direction:column;gap:10px;"></div>
+    </div>
+
+    <!-- RIGHT: FORM + STATS -->
+    <div>
+      <div class="counsel-stats">
+        <div class="cs-card"><div class="cs-val" id="cs-total" style="color:var(--cyan)">0</div><div class="cs-lbl">Total Sessions</div></div>
+        <div class="cs-card"><div class="cs-val" id="cs-critical-cnt" style="color:var(--red)">0</div><div class="cs-lbl">Critical</div></div>
+        <div class="cs-card"><div class="cs-val" id="cs-ongoing-cnt" style="color:var(--amber)">0</div><div class="cs-lbl">Ongoing</div></div>
+        <div class="cs-card"><div class="cs-val" id="cs-resolved-cnt" style="color:var(--green)">0</div><div class="cs-lbl">Resolved</div></div>
+      </div>
+
+      <!-- Add session form -->
+      <div class="panel" id="new-session-form">
+        <div class="ptitle"><span class="pd" style="background:var(--amber)"></span>Log New Session</div>
+        <div class="fg"><label class="fl">STUDENT NAME *</label><input class="fi-full" type="text" id="cs-name" placeholder="Full name"></div>
+        <div class="fgrid2">
+          <div class="fg"><label class="fl">RISK LEVEL</label><select class="fi-full" id="cs-risk"><option value="critical">Critical (High Risk)</option><option value="ongoing" selected>Ongoing (Medium)</option><option value="resolved">Resolved (Low)</option></select></div>
+          <div class="fg"><label class="fl">SESSION TYPE</label><select class="fi-full" id="cs-type"><option>First Contact</option><option>Follow-up</option><option>Crisis Intervention</option><option>Group Session</option><option>Final Review</option></select></div>
+        </div>
+        <div class="fgrid2">
+          <div class="fg"><label class="fl">DATE</label><input class="fi-full" type="date" id="cs-date"></div>
+          <div class="fg"><label class="fl">NEXT APPOINTMENT</label><input class="fi-full" type="date" id="cs-next"></div>
+        </div>
+        <div class="fg"><label class="fl">SESSION NOTES *</label><textarea class="fi-full" id="cs-notes" placeholder="What was discussed? Key observations, student's mood, action items agreed upon…" rows="4"></textarea></div>
+        <div class="fg"><label class="fl">ACTION PLAN</label><textarea class="fi-full" id="cs-action" placeholder="Steps to be taken before next session — by student, counsellor, or institution…" rows="2"></textarea></div>
+        <div class="fgrid2">
+          <div class="fg"><label class="fl">COUNSELLOR NAME</label><input class="fi-full" type="text" id="cs-counsellor" placeholder="Your name"></div>
+          <div class="fg"><label class="fl">REFERRAL NEEDED?</label><select class="fi-full" id="cs-referral"><option value="no">No</option><option value="psychologist">Psychologist</option><option value="doctor">Doctor</option><option value="admin">Academic Admin</option><option value="parent">Parent Contact</option></select></div>
+        </div>
+        <div class="suc-bar" id="cs-suc">✓ Session logged successfully!</div>
+        <div class="err-bar" id="cs-err"></div>
+        <button class="submit-btn green" onclick="logSession()">✓ Log Counselling Session</button>
+      </div>
+
+      <!-- Upcoming appointments -->
+      <div class="panel" style="margin-top:16px;">
+        <div class="ptitle"><span class="pd" style="background:var(--cyan)"></span>Upcoming Appointments</div>
+        <div class="upcoming-list" id="upcoming-list">
+          <div style="font-size:13px;color:var(--muted);text-align:center;padding:16px;">No upcoming appointments yet.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -782,6 +1023,315 @@ function initChat() {
     addMsg('bot', `👋 Hi ${sess.name?.split(' ')[0] || 'there'}! I'm <strong>AURA Chat</strong> — your personal mental wellness assistant.<br><br>I'm trained on a dataset of <strong>1,999 real students</strong> and can help you understand stress, sleep, burnout, exam anxiety, and more — with real data insights behind every answer.<br><br>What would you like to talk about?`);
   }, 400);
 }
+
+renderStudents();
+
+/* ══════════════════════════════════════
+   ADD STUDENT
+══════════════════════════════════════ */
+function sUpdate(sliderId, lblId) {
+  const val = parseFloat(document.getElementById(sliderId).value).toFixed(1).replace(/\.0$/, '');
+  document.getElementById(lblId).textContent = val;
+  document.getElementById(sliderId + '-dsp').textContent = val;
+  updatePreview();
+}
+
+// Attach live update to name/age/gender fields too
+['as-name','as-age','as-gender','as-dept','as-year'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('input', updatePreview);
+});
+
+function getRiskColor(risk) {
+  return risk === 'High' ? 'var(--red)' : risk === 'Medium' ? 'var(--amber)' : 'var(--green)';
+}
+
+function estimateRisk(stress, sleep, ep, anx) {
+  const score = (stress/10)*0.30 + (1-sleep/10)*0.25 + (ep/10)*0.20 + (anx/10)*0.15;
+  if (score > 0.58 || stress >= 7.8) return 'High';
+  if (score > 0.38 || stress >= 5.9) return 'Medium';
+  return 'Low';
+}
+
+function updatePreview() {
+  const name  = document.getElementById('as-name').value || 'Student Name';
+  const age   = document.getElementById('as-age').value;
+  const gender= document.getElementById('as-gender').value;
+  const dept  = document.getElementById('as-dept').value;
+  const year  = document.getElementById('as-year').value;
+  const stress= parseFloat(document.getElementById('as-stress').value);
+  const sleep = parseFloat(document.getElementById('as-sleep').value);
+  const ep    = parseFloat(document.getElementById('as-ep').value);
+  const anx   = parseFloat(document.getElementById('as-anx').value);
+  const soc   = parseFloat(document.getElementById('as-soc').value);
+  const phy   = parseFloat(document.getElementById('as-phy').value);
+
+  const initials = name.split(' ').filter(Boolean).map(w=>w[0]).join('').toUpperCase().slice(0,2) || '?';
+  const risk = estimateRisk(stress, sleep, ep, anx);
+  const rc = risk==='High'?'h':risk==='Medium'?'m':'l';
+  const riskColor = getRiskColor(risk);
+
+  document.getElementById('as-prev-av').textContent = initials;
+  document.getElementById('as-prev-av').className = `pc-av av ${rc}`;
+  document.getElementById('as-prev-name').textContent = name;
+  document.getElementById('as-prev-sub').textContent = [age?`Age ${age}`:'',gender,dept?dept:'',year?`Year ${year}`:''].filter(Boolean).join(' · ') || 'Fill in details';
+
+  const gc = (v,g,b) => v<=g ? 'var(--green)' : v>=b ? 'var(--red)' : 'var(--amber)';
+  document.getElementById('pv-stress').textContent = stress; document.getElementById('pv-stress').style.color = gc(stress,3.7,7.8);
+  document.getElementById('pv-sleep').textContent  = sleep+'h'; document.getElementById('pv-sleep').style.color  = sleep>=6.8?'var(--green)':sleep>=5.7?'var(--amber)':'var(--red)';
+  document.getElementById('pv-ep').textContent     = ep;     document.getElementById('pv-ep').style.color     = gc(ep,5.8,7.8);
+  document.getElementById('pv-anx').textContent    = anx;    document.getElementById('pv-anx').style.color    = gc(anx,2.5,5.9);
+  document.getElementById('pv-soc').textContent    = soc;    document.getElementById('pv-soc').style.color    = soc>=5.1?'var(--green)':soc>=4.4?'var(--amber)':'var(--red)';
+  document.getElementById('pv-phy').textContent    = phy+'h';document.getElementById('pv-phy').style.color    = phy>=3?'var(--green)':phy>=2.4?'var(--amber)':'var(--red)';
+
+  document.getElementById('pv-risk').textContent = risk + ' Risk';
+  document.getElementById('pv-risk').style.color = riskColor;
+  document.getElementById('pv-risk-box').style.background = risk==='High'?'rgba(255,95,126,0.08)':risk==='Medium'?'rgba(255,201,77,0.08)':'rgba(74,222,175,0.08)';
+  document.getElementById('pv-risk-box').style.border = `1px solid ${riskColor.replace('var(','')}`.replace(')','')+')';
+}
+
+// Init preview sliders
+['as-stress','as-sleep','as-ep','as-anx','as-soc','as-phy','as-scr','as-fin'].forEach(id => {
+  document.getElementById(id).addEventListener('input', updatePreview);
+});
+updatePreview();
+
+// Set today's date as default for counselling form
+const today = new Date().toISOString().split('T')[0];
+document.getElementById('cs-date').value = today;
+
+let addedStudents = JSON.parse(localStorage.getItem('aura_added_students') || '[]');
+
+async function addStudent() {
+  const name   = document.getElementById('as-name').value.trim();
+  const age    = document.getElementById('as-age').value;
+  const gender = document.getElementById('as-gender').value;
+  const year   = document.getElementById('as-year').value;
+  const dept   = document.getElementById('as-dept').value.trim();
+  const study  = document.getElementById('as-study').value;
+  const perf   = document.getElementById('as-perf').value || 71;
+  const stress = parseFloat(document.getElementById('as-stress').value);
+  const sleep  = parseFloat(document.getElementById('as-sleep').value);
+  const ep     = parseFloat(document.getElementById('as-ep').value);
+  const anx    = parseFloat(document.getElementById('as-anx').value);
+  const soc    = parseFloat(document.getElementById('as-soc').value);
+  const phy    = parseFloat(document.getElementById('as-phy').value);
+  const scr    = parseFloat(document.getElementById('as-scr').value);
+  const fin    = parseFloat(document.getElementById('as-fin').value);
+  const notes  = document.getElementById('as-notes').value.trim();
+  const refby  = document.getElementById('as-refby').value;
+  const priority = document.getElementById('as-priority').value;
+  const sid    = document.getElementById('as-id').value.trim();
+  const email  = document.getElementById('as-email').value.trim();
+
+  const errEl = document.getElementById('add-err');
+  const sucEl = document.getElementById('add-suc');
+  errEl.classList.remove('show'); sucEl.classList.remove('show');
+
+  if (!name) { errEl.textContent = '⚠ Please enter the student name.'; errEl.classList.add('show'); return; }
+  if (!age)  { errEl.textContent = '⚠ Please enter the student age.'; errEl.classList.add('show'); return; }
+  if (!study){ errEl.textContent = '⚠ Please enter daily study hours.'; errEl.classList.add('show'); return; }
+
+  // Try backend predict
+  const base = document.getElementById('api-url').value || 'http://localhost:5000';
+  let risk = estimateRisk(stress, sleep, ep, anx);
+  let classProbs = {High:5,Medium:20,Low:75};
+  try {
+    const p = new URLSearchParams({name,age,gender,academic_year:year,study_hours:study,stress_level:stress,sleep_hours:sleep,exam_pressure:ep,anxiety_score:anx,social_support:soc,physical_activity:phy,academic_performance:perf,screen_time:scr,internet_usage:(scr*0.8).toFixed(1),financial_stress:fin,family_expectation:5,depression_score:Math.max(0,anx-1).toFixed(1)});
+    const res = await fetch(`${base}/predict?${p}`);
+    const data = await res.json();
+    if (!data.error) { risk = data.risk; if (data.class_probs) classProbs = data.class_probs; }
+  } catch(e) { /* use offline estimate */ }
+
+  const rc = risk==='High'?'h':risk==='Medium'?'m':'l';
+  const student = {
+    id: Date.now(), name, age, gender, year, dept, study, perf, stress, sleep, ep, anx, soc, phy, scr, fin,
+    notes, refby, priority, sid, email, risk, rc, classProbs, addedAt: new Date().toLocaleString(), addedBy: sess.name || 'Counsellor'
+  };
+
+  addedStudents.unshift(student);
+  localStorage.setItem('aura_added_students', JSON.stringify(addedStudents));
+
+  sucEl.textContent = `✓ ${name} added successfully! Predicted Risk: ${risk}. ${notes ? 'Notes saved.' : ''}`;
+  sucEl.classList.add('show');
+  sucEl.scrollIntoView({behavior:'smooth',block:'nearest'});
+  renderRecentAdded();
+
+  // Auto-create a counselling session if High Risk
+  if (risk === 'High' || priority === 'urgent') {
+    const sessions = JSON.parse(localStorage.getItem('aura_sessions') || '[]');
+    sessions.unshift({
+      id: Date.now()+1, studentName: name, risk: 'critical',
+      type: 'First Contact', date: today, nextDate: '',
+      notes: `Auto-created: Student added with ${risk} risk. Priority: ${priority}. Referred by: ${refby}. ${notes}`,
+      action: 'Schedule urgent counselling session within 48 hours.', counsellor: sess.name || 'System', referral: 'no', status: 'critical'
+    });
+    localStorage.setItem('aura_sessions', JSON.stringify(sessions));
+    sucEl.textContent += ' ⚠ Auto-created a Critical counselling session — check the Counselling tab.';
+  }
+}
+
+function clearAddForm() {
+  ['as-name','as-age','as-dept','as-id','as-email','as-phone','as-study','as-perf','as-notes'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('as-stress').value = 4.3; document.getElementById('as-stress-lbl').textContent = '4.3'; document.getElementById('as-stress-dsp').textContent = '4.3';
+  document.getElementById('as-sleep').value  = 6.5; document.getElementById('as-sleep-lbl').textContent  = '6.5'; document.getElementById('as-sleep-dsp').textContent  = '6.5';
+  document.getElementById('as-ep').value     = 5.9; document.getElementById('as-ep-lbl').textContent     = '5.9'; document.getElementById('as-ep-dsp').textContent     = '5.9';
+  document.getElementById('as-anx').value    = 3.0; document.getElementById('as-anx-lbl').textContent    = '3.0'; document.getElementById('as-anx-dsp').textContent    = '3.0';
+  document.getElementById('as-soc').value    = 4.9; document.getElementById('as-soc-lbl').textContent    = '4.9'; document.getElementById('as-soc-dsp').textContent    = '4.9';
+  document.getElementById('as-phy').value    = 3.0; document.getElementById('as-phy-lbl').textContent    = '3.0'; document.getElementById('as-phy-dsp').textContent    = '3.0';
+  document.getElementById('as-scr').value    = 5.1; document.getElementById('as-scr-lbl').textContent    = '5.1'; document.getElementById('as-scr-dsp').textContent    = '5.1';
+  document.getElementById('as-fin').value    = 3.0; document.getElementById('as-fin-lbl').textContent    = '3.0'; document.getElementById('as-fin-dsp').textContent    = '3.0';
+  document.getElementById('add-err').classList.remove('show');
+  document.getElementById('add-suc').classList.remove('show');
+  updatePreview();
+}
+
+function renderRecentAdded() {
+  const el = document.getElementById('recent-added');
+  if (!addedStudents.length) { el.innerHTML = '<div style="text-align:center;padding:20px 10px;color:var(--muted);font-size:13px;">No students added yet.</div>'; return; }
+  el.innerHTML = addedStudents.slice(0,5).map(s => `
+    <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:9px;margin-bottom:8px;">
+      <div class="av ${s.rc}">${s.name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2)}</div>
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${s.name}</div>
+        <div style="font-size:11px;color:var(--muted)">Age ${s.age} · ${s.gender} · Yr${s.year}${s.dept?' · '+s.dept:''}</div>
+      </div>
+      <span class="pill ${s.rc}">${s.risk}</span>
+    </div>`).join('');
+}
+
+/* ══════════════════════════════════════
+   COUNSELLING SESSIONS
+══════════════════════════════════════ */
+let sessions = JSON.parse(localStorage.getItem('aura_sessions') || '[]');
+let csFilter = 'all';
+
+// Seed with sample sessions if empty
+if (!sessions.length) {
+  sessions = [
+    {id:1,studentName:'Student #4 (CSV)',risk:'critical',type:'Crisis Intervention',date:'2026-04-01',nextDate:'2026-04-08',notes:'Student reported severe sleep deprivation (4.6h/night) and high burnout score of 7.2. Appeared distressed. Immediate intervention initiated.',action:'Reduce academic workload. Schedule doctor appointment for sleep issues. Daily check-in for 1 week.',counsellor:'Dr. Meena Rao',referral:'doctor',status:'critical'},
+    {id:2,studentName:'Student #68 (CSV)',risk:'critical',type:'First Contact',date:'2026-04-02',nextDate:'2026-04-09',notes:'Self-referral. Student is 28, Female, Year 1. Very high burnout (7.3). Only sleeping 3h/night. Academic performance paradoxically high at 81.5%.',action:'Refer to campus psychologist. Contact parents. Academic load review.',counsellor:'Dr. Meena Rao',referral:'psychologist',status:'critical'},
+    {id:3,studentName:'Student #9 (CSV)',risk:'ongoing',type:'Follow-up',date:'2026-04-03',nextDate:'2026-04-17',notes:'Student doing better since last session. Sleep improved to 5.2h from 4.5h. Still elevated stress at 5.8. Exam pressure noted.',action:'Continue weekly check-ins. Introduce study schedule. Peer mentoring suggested.',counsellor:'Dr. Raj Sharma',referral:'no',status:'ongoing'},
+    {id:4,studentName:'Student #12 (CSV)',risk:'ongoing',type:'Follow-up',date:'2026-04-04',nextDate:'2026-04-18',notes:'Screen time at 8.9h/day is a major concern. Student agreed to reduce to 4h. Stress at 6.3, sleep at 5.7h.',action:'Digital detox plan agreed. Stress management workshop referral.',counsellor:'Dr. Raj Sharma',referral:'no',status:'ongoing'},
+    {id:5,studentName:'Student #1 (CSV)',risk:'resolved',type:'Final Review',date:'2026-04-05',nextDate:'',notes:'Student successfully transitioned to Low Risk. Stress now 4.1, sleep improved to 6.9h. No further intervention needed.',action:'Routine semester check-in only. Share positive feedback with HOD.',counsellor:'Dr. Meena Rao',referral:'no',status:'resolved'},
+  ];
+  localStorage.setItem('aura_sessions', JSON.stringify(sessions));
+}
+
+function setCsFilter(f) {
+  csFilter = f;
+  ['all','critical','ongoing','resolved'].forEach(k => document.getElementById('cs-'+k)?.classList.toggle('on', k===f));
+  renderSessions();
+}
+
+function renderSessions() {
+  const q = (document.getElementById('cs-search')?.value || '').toLowerCase();
+  const list = sessions.filter(s => {
+    const mf = csFilter === 'all' || s.status === csFilter;
+    const ms = !q || s.studentName.toLowerCase().includes(q) || s.counsellor?.toLowerCase().includes(q);
+    return mf && ms;
+  });
+
+  const statusLabel = {critical:'Critical',ongoing:'Ongoing',resolved:'Resolved'};
+  const el = document.getElementById('sessions-list');
+  if (!list.length) { el.innerHTML = '<div style="text-align:center;padding:32px;color:var(--muted);font-size:13px;">No sessions found.</div>'; }
+  else el.innerHTML = list.map(s => {
+    const initials = s.studentName.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
+    const rc = s.status === 'critical' ? 'h' : s.status === 'ongoing' ? 'm' : 'l';
+    return `<div class="session-card">
+      <div class="sc-header">
+        <div class="sc-av av ${rc}">${initials}</div>
+        <div class="sc-info">
+          <div class="sc-name">${s.studentName}</div>
+          <div class="sc-meta">${s.type} · ${s.date}${s.counsellor?' · '+s.counsellor:''}</div>
+        </div>
+        <span class="status-badge ${s.status}">${statusLabel[s.status]||s.status}</span>
+      </div>
+      <div class="sc-body">${s.notes}</div>
+      ${s.action ? `<div style="font-size:11.5px;color:var(--muted);margin-bottom:10px;"><strong style="color:var(--text)">Action:</strong> ${s.action}</div>` : ''}
+      ${s.referral&&s.referral!=='no' ? `<div style="font-size:11px;margin-bottom:10px;"><span class="pill h">Referral: ${s.referral}</span></div>` : ''}
+      <div class="sc-footer">
+        <div class="sc-date">${s.nextDate ? '📅 Next: '+s.nextDate : 'No next appointment'}</div>
+        <div class="sc-actions">
+          ${s.status!=='resolved'?`<button class="sc-btn resolve" onclick="resolveSession(${s.id})">✓ Resolve</button>`:''}
+          <button class="sc-btn" onclick="deleteSession(${s.id})" style="color:var(--red);">✕ Delete</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Update stats
+  document.getElementById('cs-total').textContent = sessions.length;
+  document.getElementById('cs-critical-cnt').textContent = sessions.filter(s=>s.status==='critical').length;
+  document.getElementById('cs-ongoing-cnt').textContent  = sessions.filter(s=>s.status==='ongoing').length;
+  document.getElementById('cs-resolved-cnt').textContent = sessions.filter(s=>s.status==='resolved').length;
+
+  // Upcoming
+  const upcoming = sessions.filter(s=>s.nextDate&&s.nextDate>=today).sort((a,b)=>a.nextDate.localeCompare(b.nextDate)).slice(0,5);
+  const upEl = document.getElementById('upcoming-list');
+  if (!upcoming.length) { upEl.innerHTML = '<div style="font-size:13px;color:var(--muted);text-align:center;padding:14px;">No upcoming appointments.</div>'; }
+  else upEl.innerHTML = upcoming.map(s=>`<div class="up-item"><div class="up-date">${s.nextDate}</div><div class="up-name">${s.studentName}</div><div class="up-type">${s.type}</div></div>`).join('');
+}
+
+function resolveSession(id) {
+  const s = sessions.find(s=>s.id===id);
+  if (s) { s.status='resolved'; s.nextDate=''; }
+  localStorage.setItem('aura_sessions', JSON.stringify(sessions));
+  renderSessions();
+}
+
+function deleteSession(id) {
+  sessions = sessions.filter(s=>s.id!==id);
+  localStorage.setItem('aura_sessions', JSON.stringify(sessions));
+  renderSessions();
+}
+
+function openNewSession() {
+  document.getElementById('new-session-form').scrollIntoView({behavior:'smooth',block:'start'});
+  document.getElementById('cs-name').focus();
+}
+
+function logSession() {
+  const name     = document.getElementById('cs-name').value.trim();
+  const risk     = document.getElementById('cs-risk').value;
+  const type     = document.getElementById('cs-type').value;
+  const date     = document.getElementById('cs-date').value;
+  const nextDate = document.getElementById('cs-next').value;
+  const notes    = document.getElementById('cs-notes').value.trim();
+  const action   = document.getElementById('cs-action').value.trim();
+  const counsellor = document.getElementById('cs-counsellor').value.trim() || sess.name || 'Counsellor';
+  const referral = document.getElementById('cs-referral').value;
+
+  const sucEl = document.getElementById('cs-suc');
+  const errEl = document.getElementById('cs-err');
+  sucEl.classList.remove('show'); errEl.classList.remove('show');
+
+  if (!name)  { errEl.textContent = '⚠ Please enter the student name.'; errEl.classList.add('show'); return; }
+  if (!notes) { errEl.textContent = '⚠ Please enter session notes.'; errEl.classList.add('show'); return; }
+
+  sessions.unshift({id:Date.now(),studentName:name,risk,type,date,nextDate,notes,action,counsellor,referral,status:risk});
+  localStorage.setItem('aura_sessions', JSON.stringify(sessions));
+
+  sucEl.textContent = `✓ Session logged for ${name}. ${nextDate ? 'Next appointment: '+nextDate+'.' : ''}`;
+  sucEl.classList.add('show');
+
+  ['cs-name','cs-notes','cs-action','cs-counsellor','cs-next'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('cs-date').value = today;
+  renderSessions();
+}
+
+// Init counselling page when opened
+document.querySelectorAll('.ni').forEach(item => {
+  const origClick = item.onclick;
+  item.addEventListener('click', () => {
+    if (item.dataset.page === 'counselling') { renderSessions(); }
+    if (item.dataset.page === 'addstudent')  { renderRecentAdded(); updatePreview(); }
+  });
+});
+
+// Refresh loaded data on page load
+renderRecentAdded();
+renderSessions();
 
 renderStudents();
 </script>
